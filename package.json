@@ -1,0 +1,15 @@
+{
+    "dependencies": {
+        "ansi-to-html": "latest",
+        "ansi2html": "0.0.1",
+        "args-parser": "^1.1.0",
+        "async": "",
+        "coffeescript": "^2.0.0",
+        "commander": "latest",
+        "config": "^1.26.2",
+        "sqlite3": "latest",
+        "strip-ansi": "~3.0.0",
+        "www-authenticate": "latest",
+        "yarn": "^1.0.2"
+    }
+}

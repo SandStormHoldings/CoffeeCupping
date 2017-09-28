@@ -1,0 +1,36 @@
+* preface
+from [[https://en.wikipedia.org/wiki/Coffee_cupping][wikipedia]]: "Coffee cupping, or coffee tasting, is the practice of observing the tastes and aromas of brewed coffee."
+this collection of scripts allows one to retrieve all of the test results in one's jenkins jobs, arbitrarily inspect the builds with SQL, and generate a digest of test passage across repositories, branches and specific revisions in order to easily detect breakage and other trends.
+* explanation
+- fetch_tests.coffee :: queries your jenkins for test results. can query the hwole server, a specific job, or even a particular build. can output to stdout or to a sqlite3 db.
+- display_tests.coffee :: queries out.sqlite, which is written to by fetch_tests.coffee and displays an aggregated view of test passage
+* installation
+** termsql
+sudo apt-get install sqlite3
+cd /usr/src && sudo git clone https://github.com/tobimensch/termsql.git && cd termsql && sudo python setup.py install
+** nodejs
+sudo apt-get install nodejs-legacy
+** nodejs deps
+install #should install locally everything in package.json
+** coffeescript
+sudo apt-get install npm
+npm install yarn
+yarn install
+** init an sqlite3 db, if not existing
+cat schema.sql | sqlite3 out.sqlite 
+* retrieval
+** retrieve a specific job and insert results into db
+./fetch_tests.coffee --job=JOBNAME --toDB
+** retrieve all jobs, inserts results into db
+./fetch_tests.coffee --toDB
+** retrieve a job, write to stdout (parseable by termsql)
+./fetch_tests.coffee --job=JOBNAME
+** import into an sqlite database for heavy duty querying
+(./fetch_tests.coffee ; cat passage/*.txt ) | termsql -1 -o out.sqlite
+** import a new job into an existing db without erasing old data
+./fetch_tests.coffee --job=400ezThreeGames | termsql -a -1 -o out.sqlite
+* db querying
+
+
+ 
+

@@ -1,0 +1,11 @@
+{
+    "comment":"change THIS FILE and put as default.json"
+    "jenkins_user":"username",
+    "jenkins_pass":"password",
+    "jenkins_homepage":"http://%s:%s@hostname",
+    "jenkins_apipath":"/job/%s/api/json",
+    "scm_baseurl":"git.repository.com:/",
+    "max_http_tries":3,
+    "obtain_tags":false,
+    "db_filename":"out.sqlite"
+}
