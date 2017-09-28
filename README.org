@@ -28,7 +28,7 @@ cat schema.sql | sqlite3 out.sqlite
 ** import into an sqlite database for heavy duty querying
 (./fetch_tests.coffee ; cat passage/*.txt ) | termsql -1 -o out.sqlite
 ** import a new job into an existing db without erasing old data
-./fetch_tests.coffee --job=400ezThreeGames | termsql -a -1 -o out.sqlite
+./fetch_tests.coffee --job=JOBNAME | termsql -a -1 -o out.sqlite
 * db querying
 
 
