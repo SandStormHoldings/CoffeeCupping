@@ -151,11 +151,11 @@ suitesWorker = (dbInserts,date,jobName,buildData,builton,rev,remote,branch,depre
                 for col,index in header
                         #l 'assigning dbg[',col,'] with index ', index,' of ',outd[index] 
                         dbg[col]=outd[index]
-
-                olen = out.split(" ").length
-                if olen!=13
+                        # if outd[index] and ' ' in outd[index]
+                        #         throw new Error("value of "+col+" contains a space: '"+outd[index]+"'")
+                if outd.length!=13
                         l dbg
-                        throw new Error("bad output "+olen+" length of '"+out+"'")
+                        throw new Error("bad output "+outd.length+" length of '"+out+"'")
                 if toDB
                         sqls = 'insert or replace into tbl ('+header.join(",")+') values ('+['?' for k in outd]+")"
                         #l '--',sqls,outd
